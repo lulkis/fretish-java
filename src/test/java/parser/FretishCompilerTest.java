@@ -9,7 +9,7 @@ public class FretishCompilerTest {
 
     @Test
     public void goodTest1(){
-        String statement = "In landing mode the system shall satisfy speed = 0. (-> eventually)";
+        String statement = "In landing mode the system shall satisfy speed = 0 (-> eventually)";
         FretishCompiler compiler = new FretishCompiler();
         ArrayList<String> errors;
 
