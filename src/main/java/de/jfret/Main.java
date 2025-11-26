@@ -1,17 +1,24 @@
 package de.jfret;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+import de.jfret.parser.FretishCompiler;
+import de.jfret.parser.FretishLexer;
+import de.jfret.parser.FretishParser;
+import de.jfret.parser.ParserErrorListener;
+import org.antlr.runtime.tree.ParseTree;
+import org.antlr.v4.automata.ATNPrinter;
+import org.antlr.v4.runtime.*;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
-        }
+import javax.xml.transform.ErrorListener;
+import java.util.ArrayList;
+
+public class Main {
+
+    static void main() {
+        //String statement = "I dunno, sollte nicht parsen weil dumm";
+        String statementGood = "After boot mode the system shall immediately satisfy prompt_for_password";
+
+        FretishCompiler compiler = new FretishCompiler();
+
+        System.out.println(compiler.compileFretish(statementGood).size());
     }
 }
