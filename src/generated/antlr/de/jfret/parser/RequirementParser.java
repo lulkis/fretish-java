@@ -1,15 +1,17 @@
+// Generated from Requirement.g4 by ANTLR 4.13.1
 package de.jfret.parser;
-// Generated from Fretish.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
 import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
-public class FretishParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.13.2", RuntimeMetaData.VERSION); }
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
+public class RequirementParser extends Parser {
+	static { RuntimeMetaData.checkVersion("4.13.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -105,7 +107,7 @@ public class FretishParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Fretish.g4"; }
+	public String getGrammarFileName() { return "Requirement.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -116,7 +118,7 @@ public class FretishParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public FretishParser(TokenStream input) {
+	public RequirementParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
@@ -135,11 +137,16 @@ public class FretishParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_reqt_body; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterReqt_body(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterReqt_body(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitReqt_body(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitReqt_body(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitReqt_body(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -209,18 +216,23 @@ public class FretishParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class FreeformContext extends ParserRuleContext {
-		public TerminalNode STRING() { return getToken(FretishParser.STRING, 0); }
+		public TerminalNode STRING() { return getToken(RequirementParser.STRING, 0); }
 		public FreeformContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_freeform; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterFreeform(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterFreeform(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitFreeform(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitFreeform(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitFreeform(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -253,7 +265,7 @@ public class FretishParser extends Parser {
 		public ComponentContext component() {
 			return getRuleContext(ComponentContext.class,0);
 		}
-		public TerminalNode SHALL() { return getToken(FretishParser.SHALL, 0); }
+		public TerminalNode SHALL() { return getToken(RequirementParser.SHALL, 0); }
 		public ScopeContext scope() {
 			return getRuleContext(ScopeContext.class,0);
 		}
@@ -272,11 +284,16 @@ public class FretishParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_nasa; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterNasa(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterNasa(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitNasa(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitNasa(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitNasa(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -367,34 +384,39 @@ public class FretishParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ScopeContext extends ParserRuleContext {
-		public TerminalNode ONLY() { return getToken(FretishParser.ONLY, 0); }
-		public TerminalNode EXCEPT() { return getToken(FretishParser.EXCEPT, 0); }
-		public TerminalNode IN() { return getToken(FretishParser.IN, 0); }
+		public TerminalNode ONLY() { return getToken(RequirementParser.ONLY, 0); }
+		public TerminalNode EXCEPT() { return getToken(RequirementParser.EXCEPT, 0); }
+		public TerminalNode IN() { return getToken(RequirementParser.IN, 0); }
 		public Scope_modeContext scope_mode() {
 			return getRuleContext(Scope_modeContext.class,0);
 		}
-		public TerminalNode UNLESS() { return getToken(FretishParser.UNLESS, 0); }
-		public TerminalNode WHILE() { return getToken(FretishParser.WHILE, 0); }
+		public TerminalNode UNLESS() { return getToken(RequirementParser.UNLESS, 0); }
+		public TerminalNode WHILE() { return getToken(RequirementParser.WHILE, 0); }
 		public Scope_conditionContext scope_condition() {
 			return getRuleContext(Scope_conditionContext.class,0);
 		}
-		public TerminalNode WHEN() { return getToken(FretishParser.WHEN, 0); }
-		public TerminalNode IF() { return getToken(FretishParser.IF, 0); }
-		public TerminalNode DURING() { return getToken(FretishParser.DURING, 0); }
-		public TerminalNode AFTER() { return getToken(FretishParser.AFTER, 0); }
-		public TerminalNode BEFORE() { return getToken(FretishParser.BEFORE, 0); }
-		public TerminalNode NOT() { return getToken(FretishParser.NOT, 0); }
+		public TerminalNode WHEN() { return getToken(RequirementParser.WHEN, 0); }
+		public TerminalNode IF() { return getToken(RequirementParser.IF, 0); }
+		public TerminalNode DURING() { return getToken(RequirementParser.DURING, 0); }
+		public TerminalNode AFTER() { return getToken(RequirementParser.AFTER, 0); }
+		public TerminalNode BEFORE() { return getToken(RequirementParser.BEFORE, 0); }
+		public TerminalNode NOT() { return getToken(RequirementParser.NOT, 0); }
 		public ScopeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_scope; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterScope(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterScope(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitScope(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitScope(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitScope(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -727,18 +749,23 @@ public class FretishParser extends Parser {
 		public Regular_conditionContext regular_condition() {
 			return getRuleContext(Regular_conditionContext.class,0);
 		}
-		public TerminalNode AND() { return getToken(FretishParser.AND, 0); }
+		public TerminalNode AND() { return getToken(RequirementParser.AND, 0); }
 		public Reqt_conditionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_reqt_condition; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterReqt_condition(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterReqt_condition(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitReqt_condition(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitReqt_condition(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitReqt_condition(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -793,11 +820,16 @@ public class FretishParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_regular_condition; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterRegular_condition(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterRegular_condition(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitRegular_condition(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitRegular_condition(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitRegular_condition(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -862,23 +894,28 @@ public class FretishParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Qualifier_wordContext extends ParserRuleContext {
-		public TerminalNode UPON() { return getToken(FretishParser.UPON, 0); }
-		public TerminalNode WHENEVER() { return getToken(FretishParser.WHENEVER, 0); }
-		public TerminalNode WHEN() { return getToken(FretishParser.WHEN, 0); }
-		public TerminalNode UNLESS() { return getToken(FretishParser.UNLESS, 0); }
-		public TerminalNode WHERE() { return getToken(FretishParser.WHERE, 0); }
-		public TerminalNode IF() { return getToken(FretishParser.IF, 0); }
+		public TerminalNode UPON() { return getToken(RequirementParser.UPON, 0); }
+		public TerminalNode WHENEVER() { return getToken(RequirementParser.WHENEVER, 0); }
+		public TerminalNode WHEN() { return getToken(RequirementParser.WHEN, 0); }
+		public TerminalNode UNLESS() { return getToken(RequirementParser.UNLESS, 0); }
+		public TerminalNode WHERE() { return getToken(RequirementParser.WHERE, 0); }
+		public TerminalNode IF() { return getToken(RequirementParser.IF, 0); }
 		public Qualifier_wordContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_qualifier_word; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterQualifier_word(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterQualifier_word(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitQualifier_word(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitQualifier_word(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitQualifier_word(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -920,20 +957,25 @@ public class FretishParser extends Parser {
 		public Pre_conditionContext pre_condition() {
 			return getRuleContext(Pre_conditionContext.class,0);
 		}
-		public TerminalNode IS() { return getToken(FretishParser.IS, 0); }
-		public TerminalNode TRUE() { return getToken(FretishParser.TRUE, 0); }
-		public TerminalNode FALSE() { return getToken(FretishParser.FALSE, 0); }
+		public TerminalNode IS() { return getToken(RequirementParser.IS, 0); }
+		public TerminalNode TRUE() { return getToken(RequirementParser.TRUE, 0); }
+		public TerminalNode FALSE() { return getToken(RequirementParser.FALSE, 0); }
 		public Qualified_condition1Context(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_qualified_condition1; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterQualified_condition1(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterQualified_condition1(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitQualified_condition1(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitQualified_condition1(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitQualified_condition1(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -989,22 +1031,27 @@ public class FretishParser extends Parser {
 		public Pre_conditionContext pre_condition() {
 			return getRuleContext(Pre_conditionContext.class,0);
 		}
-		public TerminalNode IS() { return getToken(FretishParser.IS, 0); }
-		public TerminalNode AND() { return getToken(FretishParser.AND, 0); }
-		public TerminalNode OR() { return getToken(FretishParser.OR, 0); }
-		public TerminalNode TRUE() { return getToken(FretishParser.TRUE, 0); }
-		public TerminalNode FALSE() { return getToken(FretishParser.FALSE, 0); }
+		public TerminalNode IS() { return getToken(RequirementParser.IS, 0); }
+		public TerminalNode AND() { return getToken(RequirementParser.AND, 0); }
+		public TerminalNode OR() { return getToken(RequirementParser.OR, 0); }
+		public TerminalNode TRUE() { return getToken(RequirementParser.TRUE, 0); }
+		public TerminalNode FALSE() { return getToken(RequirementParser.FALSE, 0); }
 		public Qualified_condition2Context(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_qualified_condition2; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterQualified_condition2(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterQualified_condition2(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitQualified_condition2(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitQualified_condition2(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitQualified_condition2(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1081,11 +1128,16 @@ public class FretishParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_scope_condition; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterScope_condition(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterScope_condition(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitScope_condition(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitScope_condition(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitScope_condition(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1112,7 +1164,7 @@ public class FretishParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Scope_modeContext extends ParserRuleContext {
-		public TerminalNode MODE() { return getToken(FretishParser.MODE, 0); }
+		public TerminalNode MODE() { return getToken(RequirementParser.MODE, 0); }
 		public Mode_nameContext mode_name() {
 			return getRuleContext(Mode_nameContext.class,0);
 		}
@@ -1122,11 +1174,16 @@ public class FretishParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_scope_mode; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterScope_mode(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterScope_mode(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitScope_mode(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitScope_mode(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitScope_mode(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1190,11 +1247,16 @@ public class FretishParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_pre_condition; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterPre_condition(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterPre_condition(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitPre_condition(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitPre_condition(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitPre_condition(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1230,11 +1292,16 @@ public class FretishParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_stop_condition; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterStop_condition(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterStop_condition(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitStop_condition(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitStop_condition(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitStop_condition(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1264,18 +1331,23 @@ public class FretishParser extends Parser {
 		public Component_nameContext component_name() {
 			return getRuleContext(Component_nameContext.class,0);
 		}
-		public TerminalNode THE() { return getToken(FretishParser.THE, 0); }
+		public TerminalNode THE() { return getToken(RequirementParser.THE, 0); }
 		public ComponentContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_component; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterComponent(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterComponent(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitComponent(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitComponent(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitComponent(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1322,11 +1394,16 @@ public class FretishParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_response; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterResponse(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterResponse(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitResponse(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitResponse(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitResponse(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1353,7 +1430,7 @@ public class FretishParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class SatisfactionContext extends ParserRuleContext {
-		public TerminalNode SATISFY() { return getToken(FretishParser.SATISFY, 0); }
+		public TerminalNode SATISFY() { return getToken(RequirementParser.SATISFY, 0); }
 		public Post_conditionContext post_condition() {
 			return getRuleContext(Post_conditionContext.class,0);
 		}
@@ -1363,11 +1440,16 @@ public class FretishParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_satisfaction; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterSatisfaction(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterSatisfaction(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitSatisfaction(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitSatisfaction(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitSatisfaction(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1396,7 +1478,7 @@ public class FretishParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ProbabilityContext extends ParserRuleContext {
-		public TerminalNode WITH() { return getToken(FretishParser.WITH, 0); }
+		public TerminalNode WITH() { return getToken(RequirementParser.WITH, 0); }
 		public Probability_auxContext probability_aux() {
 			return getRuleContext(Probability_auxContext.class,0);
 		}
@@ -1406,11 +1488,16 @@ public class FretishParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_probability; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterProbability(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterProbability(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitProbability(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitProbability(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitProbability(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1460,8 +1547,8 @@ public class FretishParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Probability_auxContext extends ParserRuleContext {
-		public TerminalNode PROB() { return getToken(FretishParser.PROB, 0); }
-		public TerminalNode RELATIONAL_OP() { return getToken(FretishParser.RELATIONAL_OP, 0); }
+		public TerminalNode PROB() { return getToken(RequirementParser.PROB, 0); }
+		public TerminalNode RELATIONAL_OP() { return getToken(RequirementParser.RELATIONAL_OP, 0); }
 		public Prob_numContext prob_num() {
 			return getRuleContext(Prob_numContext.class,0);
 		}
@@ -1471,11 +1558,16 @@ public class FretishParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_probability_aux; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterProbability_aux(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterProbability_aux(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitProbability_aux(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitProbability_aux(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitProbability_aux(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1506,18 +1598,23 @@ public class FretishParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Prob_numContext extends ParserRuleContext {
-		public TerminalNode NUMBER() { return getToken(FretishParser.NUMBER, 0); }
+		public TerminalNode NUMBER() { return getToken(RequirementParser.NUMBER, 0); }
 		public Prob_numContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_prob_num; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterProb_num(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterProb_num(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitProb_num(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitProb_num(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitProb_num(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1553,11 +1650,16 @@ public class FretishParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_timing; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterTiming(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterTiming(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitTiming(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitTiming(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitTiming(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1605,44 +1707,49 @@ public class FretishParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Timing_auxContext extends ParserRuleContext {
-		public TerminalNode WITHIN() { return getToken(FretishParser.WITHIN, 0); }
+		public TerminalNode WITHIN() { return getToken(RequirementParser.WITHIN, 0); }
 		public Duration_upperContext duration_upper() {
 			return getRuleContext(Duration_upperContext.class,0);
 		}
-		public TerminalNode FOR() { return getToken(FretishParser.FOR, 0); }
-		public TerminalNode AFTER() { return getToken(FretishParser.AFTER, 0); }
+		public TerminalNode FOR() { return getToken(RequirementParser.FOR, 0); }
+		public TerminalNode AFTER() { return getToken(RequirementParser.AFTER, 0); }
 		public Duration_lowerContext duration_lower() {
 			return getRuleContext(Duration_lowerContext.class,0);
 		}
-		public TerminalNode UNTIL() { return getToken(FretishParser.UNTIL, 0); }
+		public TerminalNode UNTIL() { return getToken(RequirementParser.UNTIL, 0); }
 		public Stop_conditionContext stop_condition() {
 			return getRuleContext(Stop_conditionContext.class,0);
 		}
-		public TerminalNode BEFORE() { return getToken(FretishParser.BEFORE, 0); }
-		public TerminalNode AT() { return getToken(FretishParser.AT, 0); }
-		public TerminalNode THE() { return getToken(FretishParser.THE, 0); }
-		public TerminalNode TIMEPOINT() { return getToken(FretishParser.TIMEPOINT, 0); }
-		public TerminalNode FIRST() { return getToken(FretishParser.FIRST, 0); }
-		public TerminalNode SAME() { return getToken(FretishParser.SAME, 0); }
-		public TerminalNode NEXT() { return getToken(FretishParser.NEXT, 0); }
-		public TerminalNode LAST() { return getToken(FretishParser.LAST, 0); }
-		public TerminalNode IMMEDIATELY() { return getToken(FretishParser.IMMEDIATELY, 0); }
-		public TerminalNode INITIALLY() { return getToken(FretishParser.INITIALLY, 0); }
-		public TerminalNode FINALLY() { return getToken(FretishParser.FINALLY, 0); }
-		public TerminalNode EVENTUALLY() { return getToken(FretishParser.EVENTUALLY, 0); }
-		public TerminalNode ALWAYS() { return getToken(FretishParser.ALWAYS, 0); }
-		public TerminalNode NEVER() { return getToken(FretishParser.NEVER, 0); }
+		public TerminalNode BEFORE() { return getToken(RequirementParser.BEFORE, 0); }
+		public TerminalNode AT() { return getToken(RequirementParser.AT, 0); }
+		public TerminalNode THE() { return getToken(RequirementParser.THE, 0); }
+		public TerminalNode TIMEPOINT() { return getToken(RequirementParser.TIMEPOINT, 0); }
+		public TerminalNode FIRST() { return getToken(RequirementParser.FIRST, 0); }
+		public TerminalNode SAME() { return getToken(RequirementParser.SAME, 0); }
+		public TerminalNode NEXT() { return getToken(RequirementParser.NEXT, 0); }
+		public TerminalNode LAST() { return getToken(RequirementParser.LAST, 0); }
+		public TerminalNode IMMEDIATELY() { return getToken(RequirementParser.IMMEDIATELY, 0); }
+		public TerminalNode INITIALLY() { return getToken(RequirementParser.INITIALLY, 0); }
+		public TerminalNode FINALLY() { return getToken(RequirementParser.FINALLY, 0); }
+		public TerminalNode EVENTUALLY() { return getToken(RequirementParser.EVENTUALLY, 0); }
+		public TerminalNode ALWAYS() { return getToken(RequirementParser.ALWAYS, 0); }
+		public TerminalNode NEVER() { return getToken(RequirementParser.NEVER, 0); }
 		public Timing_auxContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_timing_aux; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterTiming_aux(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterTiming_aux(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitTiming_aux(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitTiming_aux(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitTiming_aux(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1790,11 +1897,16 @@ public class FretishParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_duration_upper; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterDuration_upper(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterDuration_upper(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitDuration_upper(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitDuration_upper(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitDuration_upper(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1830,11 +1942,16 @@ public class FretishParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_duration_lower; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterDuration_lower(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterDuration_lower(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitDuration_lower(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitDuration_lower(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitDuration_lower(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1861,18 +1978,23 @@ public class FretishParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Component_nameContext extends ParserRuleContext {
-		public TerminalNode ID() { return getToken(FretishParser.ID, 0); }
+		public TerminalNode ID() { return getToken(RequirementParser.ID, 0); }
 		public Component_nameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_component_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterComponent_name(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterComponent_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitComponent_name(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitComponent_name(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitComponent_name(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1899,18 +2021,23 @@ public class FretishParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Mode_nameContext extends ParserRuleContext {
-		public TerminalNode ID() { return getToken(FretishParser.ID, 0); }
+		public TerminalNode ID() { return getToken(RequirementParser.ID, 0); }
 		public Mode_nameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_mode_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterMode_name(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterMode_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitMode_name(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitMode_name(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitMode_name(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1937,7 +2064,7 @@ public class FretishParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class DurationContext extends ParserRuleContext {
-		public TerminalNode NUMBER() { return getToken(FretishParser.NUMBER, 0); }
+		public TerminalNode NUMBER() { return getToken(RequirementParser.NUMBER, 0); }
 		public TimeunitContext timeunit() {
 			return getRuleContext(TimeunitContext.class,0);
 		}
@@ -1947,11 +2074,16 @@ public class FretishParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_duration; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterDuration(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterDuration(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitDuration(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitDuration(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitDuration(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1980,23 +2112,28 @@ public class FretishParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class TimeunitContext extends ParserRuleContext {
-		public TerminalNode TICK() { return getToken(FretishParser.TICK, 0); }
-		public TerminalNode MICROSECOND() { return getToken(FretishParser.MICROSECOND, 0); }
-		public TerminalNode MILLISECOND() { return getToken(FretishParser.MILLISECOND, 0); }
-		public TerminalNode SECOND() { return getToken(FretishParser.SECOND, 0); }
-		public TerminalNode MINUTE() { return getToken(FretishParser.MINUTE, 0); }
-		public TerminalNode HOUR() { return getToken(FretishParser.HOUR, 0); }
+		public TerminalNode TICK() { return getToken(RequirementParser.TICK, 0); }
+		public TerminalNode MICROSECOND() { return getToken(RequirementParser.MICROSECOND, 0); }
+		public TerminalNode MILLISECOND() { return getToken(RequirementParser.MILLISECOND, 0); }
+		public TerminalNode SECOND() { return getToken(RequirementParser.SECOND, 0); }
+		public TerminalNode MINUTE() { return getToken(RequirementParser.MINUTE, 0); }
+		public TerminalNode HOUR() { return getToken(RequirementParser.HOUR, 0); }
 		public TimeunitContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_timeunit; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterTimeunit(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterTimeunit(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitTimeunit(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitTimeunit(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitTimeunit(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2041,11 +2178,16 @@ public class FretishParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_post_condition; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterPost_condition(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterPost_condition(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitPost_condition(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitPost_condition(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitPost_condition(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2078,34 +2220,39 @@ public class FretishParser extends Parser {
 		public Bool_exprContext bool_expr(int i) {
 			return getRuleContext(Bool_exprContext.class,i);
 		}
-		public TerminalNode IF() { return getToken(FretishParser.IF, 0); }
-		public TerminalNode THEN() { return getToken(FretishParser.THEN, 0); }
-		public TerminalNode AT() { return getToken(FretishParser.AT, 0); }
-		public TerminalNode THE() { return getToken(FretishParser.THE, 0); }
-		public TerminalNode OCCURRENCE() { return getToken(FretishParser.OCCURRENCE, 0); }
-		public TerminalNode OF() { return getToken(FretishParser.OF, 0); }
-		public TerminalNode PREVIOUS() { return getToken(FretishParser.PREVIOUS, 0); }
-		public TerminalNode NEXT() { return getToken(FretishParser.NEXT, 0); }
+		public TerminalNode IF() { return getToken(RequirementParser.IF, 0); }
+		public TerminalNode THEN() { return getToken(RequirementParser.THEN, 0); }
+		public TerminalNode AT() { return getToken(RequirementParser.AT, 0); }
+		public TerminalNode THE() { return getToken(RequirementParser.THE, 0); }
+		public TerminalNode OCCURRENCE() { return getToken(RequirementParser.OCCURRENCE, 0); }
+		public TerminalNode OF() { return getToken(RequirementParser.OF, 0); }
+		public TerminalNode PREVIOUS() { return getToken(RequirementParser.PREVIOUS, 0); }
+		public TerminalNode NEXT() { return getToken(RequirementParser.NEXT, 0); }
 		public List<Numeric_exprContext> numeric_expr() {
 			return getRuleContexts(Numeric_exprContext.class);
 		}
 		public Numeric_exprContext numeric_expr(int i) {
 			return getRuleContext(Numeric_exprContext.class,i);
 		}
-		public TerminalNode RELATIONAL_OP() { return getToken(FretishParser.RELATIONAL_OP, 0); }
-		public TerminalNode ID() { return getToken(FretishParser.ID, 0); }
-		public TerminalNode XOR() { return getToken(FretishParser.XOR, 0); }
+		public TerminalNode RELATIONAL_OP() { return getToken(RequirementParser.RELATIONAL_OP, 0); }
+		public TerminalNode ID() { return getToken(RequirementParser.ID, 0); }
+		public TerminalNode XOR() { return getToken(RequirementParser.XOR, 0); }
 		public Bool_exprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bool_expr; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterBool_expr(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterBool_expr(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitBool_expr(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitBool_expr(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitBool_expr(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2381,26 +2528,31 @@ public class FretishParser extends Parser {
 		public Numeric_exprContext numeric_expr(int i) {
 			return getRuleContext(Numeric_exprContext.class,i);
 		}
-		public TerminalNode NUMBER() { return getToken(FretishParser.NUMBER, 0); }
-		public TerminalNode ID() { return getToken(FretishParser.ID, 0); }
+		public TerminalNode NUMBER() { return getToken(RequirementParser.NUMBER, 0); }
+		public TerminalNode ID() { return getToken(RequirementParser.ID, 0); }
 		public List<Bool_exprContext> bool_expr() {
 			return getRuleContexts(Bool_exprContext.class);
 		}
 		public Bool_exprContext bool_expr(int i) {
 			return getRuleContext(Bool_exprContext.class,i);
 		}
-		public TerminalNode MOD() { return getToken(FretishParser.MOD, 0); }
+		public TerminalNode MOD() { return getToken(RequirementParser.MOD, 0); }
 		public Numeric_exprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_numeric_expr; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).enterNumeric_expr(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).enterNumeric_expr(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FretishListener ) ((FretishListener)listener).exitNumeric_expr(this);
+			if ( listener instanceof RequirementListener ) ((RequirementListener)listener).exitNumeric_expr(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RequirementVisitor ) return ((RequirementVisitor<? extends T>)visitor).visitNumeric_expr(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 

@@ -1,5 +1,5 @@
+// Generated from Requirement.g4 by ANTLR 4.13.1
 package de.jfret.parser;
-// Generated from Fretish.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -10,8 +10,8 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
-public class FretishLexer extends Lexer {
-	static { RuntimeMetaData.checkVersion("4.13.2", RuntimeMetaData.VERSION); }
+public class RequirementLexer extends Lexer {
+	static { RuntimeMetaData.checkVersion("4.13.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -111,13 +111,13 @@ public class FretishLexer extends Lexer {
 	}
 
 
-	public FretishLexer(CharStream input) {
+	public RequirementLexer(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Fretish.g4"; }
+	public String getGrammarFileName() { return "Requirement.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
