@@ -5,6 +5,7 @@ public final class ReqModel {
     public enum ScopeType { NONE, GLOBALLY, IN, IN_MODE, AFTER, BEFORE, ONLY_AFTER, ONLY_BEFORE, ONLY_IN, NOT_IN, UNHANDLED }
     public enum ConditionType { NONE, REGULAR, HOLDING }
     public enum TimingType { NONE, WITHIN, FOR, AFTER, UNTIL, BEFORE, IMMEDIATELY, NEXT, FINALLY, ALWAYS, NEVER }
+    public enum ResponseType { NONE, SATISFACTION, ORDER, NOT_ORDER }
 
     public String scopeModeExpr;
 
@@ -22,4 +23,6 @@ public final class ReqModel {
 
     public ScopeType scopeType = ScopeType.NONE;
     public String scopeExpr;
+
+    public ResponseType responseType;
 }

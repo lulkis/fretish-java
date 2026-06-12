@@ -35,7 +35,7 @@ public final class FretishListenerToModel extends RequirementBaseListener {
 
     @Override
     public void enterScope_condition(RequirementParser.Scope_conditionContext ctx) {
-        model.scopeModeExpr = ExprNorm.normalize(ctx.getText()); // bool_expr
+        model.scopeModeExpr = ExprNorm.normalize(ctx.getText());
     }
 
     @Override
@@ -70,7 +70,7 @@ public final class FretishListenerToModel extends RequirementBaseListener {
         else if (t.startsWith("before")) model.timingType = ReqModel.TimingType.BEFORE;
         else if (t.startsWith("initially") || t.startsWith("immediately")) model.timingType = ReqModel.TimingType.IMMEDIATELY;
         else if (t.startsWith("finally")) model.timingType = ReqModel.TimingType.FINALLY;
-        else if (t.startsWith("eventually")) model.timingType = ReqModel.TimingType.FINALLY; // wenn du willst
+        else if (t.startsWith("eventually")) model.timingType = ReqModel.TimingType.FINALLY;
         else if (t.startsWith("always")) model.timingType = ReqModel.TimingType.ALWAYS;
         else if (t.startsWith("never")) model.timingType = ReqModel.TimingType.NEVER;
     }
@@ -78,5 +78,12 @@ public final class FretishListenerToModel extends RequirementBaseListener {
     @Override
     public void enterPost_condition(RequirementParser.Post_conditionContext ctx) {
         model.postConditionExpr = ExprNorm.normalize(ctx.getText());
+    }
+
+    @Override
+    public void enterSatisfaction(RequirementParser.SatisfactionContext ctx) {
+        if (model.responseType != ReqModel.ResponseType.ORDER && model.responseType != ReqModel.ResponseType.NOT_ORDER) {
+            model.responseType = ReqModel.ResponseType.SATISFACTION;
+        }
     }
 }
