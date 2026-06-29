@@ -35,6 +35,9 @@ public class TypeConverter {
             case NEVER -> {
                 return "never";
             }
+            case NEXT -> {
+                return "next";
+            }
         }
 
         return type.name();
