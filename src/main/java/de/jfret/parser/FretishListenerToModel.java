@@ -1,7 +1,11 @@
 package de.jfret.parser;
 
+import java.util.Arrays;
+import java.util.HashMap;
+
 public final class FretishListenerToModel extends RequirementBaseListener {
 
+    AntlrUtilities antlrUtilities =  new AntlrUtilities();
     private final ReqModel model = new ReqModel();
 
     public ReqModel getModel() { return model; }
@@ -62,17 +66,34 @@ public final class FretishListenerToModel extends RequirementBaseListener {
 
     @Override
     public void enterTiming(RequirementParser.TimingContext ctx) {
-        String t = ctx.getText().trim().toLowerCase();
-        if (t.startsWith("within")) model.timingType = ReqModel.TimingType.WITHIN;
-        else if (t.startsWith("for")) model.timingType = ReqModel.TimingType.FOR;
-        else if (t.startsWith("after")) model.timingType = ReqModel.TimingType.AFTER;
-        else if (t.startsWith("until")) model.timingType = ReqModel.TimingType.UNTIL;
-        else if (t.startsWith("before")) model.timingType = ReqModel.TimingType.BEFORE;
-        else if (t.startsWith("initially") || t.startsWith("immediately")) model.timingType = ReqModel.TimingType.IMMEDIATELY;
-        else if (t.startsWith("finally")) model.timingType = ReqModel.TimingType.FINALLY;
-        else if (t.startsWith("eventually")) model.timingType = ReqModel.TimingType.FINALLY;
-        else if (t.startsWith("always")) model.timingType = ReqModel.TimingType.ALWAYS;
-        else if (t.startsWith("never")) model.timingType = ReqModel.TimingType.NEVER;
+        HashMap<String, String> atWords = new HashMap<>();
+        atWords.put("first", "immediately");
+        atWords.put("same", "immediately");
+        atWords.put("next", "next");
+        atWords.put("last", "finally");
+
+        String[] words = antlrUtilities.getText(ctx).trim().toLowerCase().split("\\s+");
+        System.out.println(Arrays.toString(words));
+        String text = words[0];
+        System.out.println(text);
+
+        if (text.equals("at")) {
+            String mid = words[2];
+            switch (mid) {
+                case "first", "same" -> model.timingType = ReqModel.TimingType.IMMEDIATELY;
+                case "next" -> model.timingType = ReqModel.TimingType.NEXT;
+                case "last" -> model.timingType = ReqModel.TimingType.FINALLY;
+            }
+
+        } else {
+            if (text.equals("initially")) {
+                model.timingType = ReqModel.TimingType.IMMEDIATELY;
+            } else {
+                System.out.println(text);
+            }
+        }
+
+        System.out.println(model.timingType);
     }
 
     @Override
