@@ -15,8 +15,8 @@ public class FretishToPtLtlTests {
     }
 
     @Test
-    @DisplayName("Example for LIFT")
-    public void testReal(){
+    @DisplayName("Example for LIFT 1")
+    public void testReal1(){
         String in = "WHEN counter = 0 THE Lift SHALL NEVER SATISFY dec";
         String expected = "(H ((H (! (counter = 0))) | (! dec)))";
         Fret2ptLTL parser = new Fret2ptLTL();
@@ -27,40 +27,16 @@ public class FretishToPtLtlTests {
         assertEquals(processedExpected, processedActual);
     }
 
-    /*
     @Test
-    public void testRegularCondition() {
-        String in = "when a the sys shall satisfy b";
-        String expected = "H(true -> ((a) -> (b)))";
-        assertEquals(norm(expected), norm(compileToPtLtl(in)));
-    }
+    @DisplayName("Example for LIFT 2")
+    public void testReal2(){
+        String in = "WHEN inc THE Lift SHALL AT THE NEXT TIMEPOINT SATISFY counter = counter + 1";
+        String expected = "(H ((Y (inc & (Z (! inc)))) -> ((counter = (counter + 1)) | (Z FALSE))))";
+        Fret2ptLTL parser = new Fret2ptLTL();
 
-    @Test
-    public void testInMode() {
-        String in = "in cruise when a the sys shall satisfy b";
-        String expected = "H((cruise) -> ((a) -> (b)))";
-        assertEquals(norm(expected), norm(compileToPtLtl(in)));
-    }
+        String processedExpected = norm(expected);
+        String processedActual = norm(parser.compileToPtLtl(in));
 
-    @Test
-    public void testExceptInMode() {
-        String in = "except in cruise when a the sys shall satisfy b";
-        String expected = "H((!(cruise)) -> ((a) -> (b)))";
-        assertEquals(norm(expected), norm(compileToPtLtl(in)));
+        assertEquals(processedExpected, processedActual);
     }
-
-    @Test
-    public void testAfterInclusive() {
-        String in = "after (p) when a the sys shall satisfy b";
-        String expected = "H((O((p))) -> ((a) -> (b)))";
-        assertEquals(norm(expected), norm(compileToPtLtl(in)));
-    }
-
-    @Test
-    public void testBeforeInclusive() {
-        String in = "before (p) when a the sys shall satisfy b";
-        String expected = "H((!(O((p)))) -> ((a) -> (b)))";
-        assertEquals(norm(expected), norm(compileToPtLtl(in)));
-    }
-     */
 }
