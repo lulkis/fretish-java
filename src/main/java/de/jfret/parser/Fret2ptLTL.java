@@ -26,13 +26,18 @@ public class Fret2ptLTL {
                 type.getTimingStringFromType(model.timingType) + "," +
                 type.getResponseStringFromType(model.responseType);
 
+        System.out.println(tableLookUp);
 
         TemplateManager manager = new TemplateManager();
         String ptTemplate = manager.getPastTimeTemplate(tableLookUp);
         System.out.println(ptTemplate);
 
-        ptTemplate = ptTemplate.replace("$regular_condition$", wrapComplexExpression(model.preConditionExpr));
-        ptTemplate = ptTemplate.replace("$post_condition$", wrapComplexExpression(model.postConditionExpr));
+        System.out.println(model.postConditionExpr);
+        //ptTemplate = ptTemplate.replace("$regular_condition$", wrapComplexExpression(model.preConditionExpr));
+        //ptTemplate = ptTemplate.replace("$post_condition$", wrapComplexExpression(model.postConditionExpr));
+
+        ptTemplate = ptTemplate.replace("$regular_condition$", model.preConditionExpr);
+        ptTemplate = ptTemplate.replace("$post_condition$", model.postConditionExpr);
 
         return ptTemplate;
     }

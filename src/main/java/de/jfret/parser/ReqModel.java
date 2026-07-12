@@ -25,4 +25,6 @@ public final class ReqModel {
     public String scopeExpr;
 
     public ResponseType responseType;
+
+    public TimingTextRange timingTextRange;
 }

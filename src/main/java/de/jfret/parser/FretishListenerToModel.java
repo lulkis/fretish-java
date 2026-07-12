@@ -66,16 +66,8 @@ public final class FretishListenerToModel extends RequirementBaseListener {
 
     @Override
     public void enterTiming(RequirementParser.TimingContext ctx) {
-        HashMap<String, String> atWords = new HashMap<>();
-        atWords.put("first", "immediately");
-        atWords.put("same", "immediately");
-        atWords.put("next", "next");
-        atWords.put("last", "finally");
-
         String[] words = antlrUtilities.getText(ctx).trim().toLowerCase().split("\\s+");
-        System.out.println(Arrays.toString(words));
         String text = words[0];
-        System.out.println(text);
 
         if (text.equals("at")) {
             String mid = words[2];
@@ -89,12 +81,27 @@ public final class FretishListenerToModel extends RequirementBaseListener {
             if (text.equals("initially")) {
                 model.timingType = ReqModel.TimingType.IMMEDIATELY;
             } else {
+                switch (text) {
+                    case "always" -> model.timingType = ReqModel.TimingType.ALWAYS;
+                    case "within" -> model.timingType = ReqModel.TimingType.WITHIN;
+                    case "never" -> model.timingType = ReqModel.TimingType.NEVER;
+                }
                 System.out.println(text);
             }
         }
 
         System.out.println(model.timingType);
     }
+
+    /*
+    @Override
+    public void exitTiming(RequirementParser.TimingContext ctx) {
+        System.out.println(ctx.start.getText());
+        System.out.println(ctx.stop.getText());
+        model.timingTextRange = new TimingTextRange(Integer.parseInt(ctx.start.getText()), Integer.parseInt(ctx.stop.getText()));
+    }
+
+     */
 
     @Override
     public void enterPost_condition(RequirementParser.Post_conditionContext ctx) {

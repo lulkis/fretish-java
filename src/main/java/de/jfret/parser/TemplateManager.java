@@ -31,7 +31,7 @@ public class TemplateManager {
     public String getPastTimeTemplate(String lookupKey) {
         if (templates != null && templates.containsKey(lookupKey)) {
             Map<String, Object> templateData = templates.get(lookupKey);
-            return (String) templateData.get("pt");
+            return (String) templateData.get("ptExpanded");
         }
         return null;
     }

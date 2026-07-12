@@ -39,4 +39,43 @@ public class FretishToPtLtlTests {
 
         assertEquals(processedExpected, processedActual);
     }
+
+    @Test
+    @DisplayName("Example for LIFT 3")
+    public void testReal3(){
+        String in = "THE Lift SHALL ALWAYS SATISFY counter >= 0 & counter <= 100";
+        String expected = "((H (counter >= 0)) & (H (counter <= 100)))";
+        Fret2ptLTL parser = new Fret2ptLTL();
+
+        String processedExpected = norm(expected);
+        String processedActual = norm(parser.compileToPtLtl(in));
+
+        assertEquals(processedExpected, processedActual);
+    }
+
+    @Test
+    @DisplayName("Basic test")
+    public void testReal5(){
+        String in = "flight_computer SHALL SATISFY active";
+        String expected = "(O active)";
+        Fret2ptLTL parser = new Fret2ptLTL();
+
+        String processedExpected = norm(expected);
+        String processedActual = norm(parser.compileToPtLtl(in));
+
+        assertEquals(processedExpected, processedActual);
+    }
+
+    @Test
+    @DisplayName("Example for fret 1")
+    public void testReal4(){
+        String in = "IN landing_mode WHEN altitude < 50 gear SHALL WITHIN 2 SECONDS SATISFY deployed.";
+        String expected = "((H (((! landing_mode) & (Y landing_mode)) -> (Y (((O[2,2] (((altitude < 50) & ((Y (! (altitude < 50))) | (landing_mode & (Z (! landing_mode))))) & (! deployed))) -> (O[0,1] ((landing_mode & (Z (! landing_mode))) | deployed))) S (((O[2,2] (((altitude < 50) & ((Y (! (altitude < 50))) | (landing_mode & (Z (! landing_mode))))) & (! deployed))) -> (O[0,1] ((landing_mode & (Z (! landing_mode))) | deployed))) & (landing_mode & (Z (! landing_mode)))))))) & (((! ((! landing_mode) & (Y landing_mode))) S ((! ((! landing_mode) & (Y landing_mode))) & (landing_mode & (Z (! landing_mode))))) -> (((O[2,2] (((altitude < 50) & ((Y (! (altitude < 50))) | (landing_mode & (Z (! landing_mode))))) & (! deployed))) -> (O[0,1] ((landing_mode & (Z (! landing_mode))) | deployed))) S (((O[2,2] (((altitude < 50) & ((Y (! (altitude < 50))) | (landing_mode & (Z (! landing_mode))))) & (! deployed))) -> (O[0,1] ((landing_mode & (Z (! landing_mode))) | deployed))) & (landing_mode & (Z (! landing_mode)))))))";
+        Fret2ptLTL parser = new Fret2ptLTL();
+
+        String processedExpected = norm(expected);
+        String processedActual = norm(parser.compileToPtLtl(in));
+
+        assertEquals(processedExpected, processedActual);
+    }
 }
