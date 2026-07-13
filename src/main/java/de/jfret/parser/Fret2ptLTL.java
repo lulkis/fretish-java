@@ -38,25 +38,14 @@ public class Fret2ptLTL {
 
         LTLparser ltLparser = new LTLparser();
 
-        ptTemplate = ptTemplate.replace("$regular_condition$", ltLparser.rewriteLTL(model.preConditionExpr));
-        ptTemplate = ptTemplate.replace("$post_condition$", ltLparser.rewriteLTL(model.postConditionExpr));
+        if(model.preConditionExpr != null) {
+            ptTemplate = ptTemplate.replace("$regular_condition$", ltLparser.rewriteLTL(model.preConditionExpr));
+        }
+
+        if(model.postConditionExpr != null) {
+            ptTemplate = ptTemplate.replace("$post_condition$", ltLparser.rewriteLTL(model.postConditionExpr));
+        }
 
         return ptTemplate;
-    }
-
-    private String wrapComplexExpression(String expr) {
-        if (expr == null) return "";
-        expr = expr.trim();
-
-        if (expr.startsWith("(") && expr.endsWith(")")) {
-            return expr;
-        }
-
-        if (expr.contains("=") || expr.contains("<") || expr.contains(">") ||
-                expr.contains("&") || expr.contains("|") || expr.contains("+") || expr.contains("-")) {
-            return "(" + expr + ")";
-        }
-
-        return expr;
     }
 }
