@@ -35,3 +35,7 @@ sourceSets {
 compileJava {
     dependsOn generateGrammarSource
 }
+
+application {
+    mainClass = 'de.jfret.Main'
+}
