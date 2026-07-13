@@ -3,6 +3,7 @@ package parser;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import de.jfret.Fret2ptLTL;
+import de.jfret.prob2ui.Fret4Prob2;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -30,6 +31,9 @@ public class FretishToPtLtlTests {
     public void testReal2(){
         String in = "WHEN inc THE Lift SHALL AT THE NEXT TIMEPOINT SATISFY counter = counter + 1";
         String expected = "(H ((Y (inc & (Z (! inc)))) -> ((counter = (counter + 1)) | (Z FALSE))))";
+
+        System.out.println(Fret4Prob2.getProb2Formula(norm(expected)));
+
         Fret2ptLTL parser = new Fret2ptLTL();
 
         String processedExpected = norm(expected);
