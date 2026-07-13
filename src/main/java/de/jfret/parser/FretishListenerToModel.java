@@ -1,5 +1,7 @@
 package de.jfret.parser;
 
+import com.ibm.icu.impl.units.UnitsData;
+
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -12,39 +14,72 @@ public final class FretishListenerToModel extends RequirementBaseListener {
 
     @Override
     public void enterScope(RequirementParser.ScopeContext ctx) {
-        String t = ctx.getText().toLowerCase();
+        String t = antlrUtilities.getText(ctx).trim().toLowerCase();
+
         model.scopeExclusive = t.contains("strictly");
 
-        boolean hasAfter = t.contains("after");
-        boolean hasBefore = t.contains("before");
-        boolean hasExcept = t.startsWith("except") || t.contains("except");
-        boolean hasNot = t.contains(" not ");
+        boolean only = t.contains("only ");
+
+        boolean inM = t.startsWith("in ") || t.contains(" in ")
+                || t.startsWith("while ") || t.contains(" while ")
+                || t.startsWith("during ") || t.contains(" during ");
+
+        int parity = (t.contains(" not ") ? 1 : 0)
+                + (t.contains("unless ") ? 1 : 0)
+                + (t.contains("except ") ? 1 : 0);
 
         String expr = null;
         if (ctx.scope_mode() != null) expr = ExprNorm.normalize(ctx.scope_mode().getText());
         else if (ctx.scope_condition() != null) expr = ExprNorm.normalize(ctx.scope_condition().getText());
-
         model.scopeExpr = expr;
 
-        if (t.startsWith("globally")) model.scopeType = ReqModel.ScopeType.GLOBALLY;
-        else if (hasAfter) model.scopeType = ReqModel.ScopeType.AFTER;
-        else if (hasBefore) model.scopeType = ReqModel.ScopeType.BEFORE;
-        else if (hasExcept || hasNot) model.scopeType = ReqModel.ScopeType.NOT_IN;
-        else model.scopeType = ReqModel.ScopeType.IN;
+        if (t.startsWith("globally")) {
+            model.scopeType = ReqModel.ScopeType.GLOBALLY;
+        } else if (t.contains("after ")) {
+            model.scopeType = only ? ReqModel.ScopeType.ONLY_AFTER : ReqModel.ScopeType.AFTER;
+        } else if (t.contains("before ")) {
+            model.scopeType = only ? ReqModel.ScopeType.ONLY_BEFORE : ReqModel.ScopeType.BEFORE;
+        } else if (inM) {
+            boolean negated = (parity % 2) == 1;
+            if (negated) {
+                model.scopeType = only ? ReqModel.ScopeType.UNHANDLED : ReqModel.ScopeType.NOT_IN;
+            } else {
+                model.scopeType = only ? ReqModel.ScopeType.ONLY_IN : ReqModel.ScopeType.IN;
+            }
+        } else {
+            model.scopeType = ReqModel.ScopeType.UNHANDLED;
+        }
     }
+
     @Override
     public void enterScope_mode(RequirementParser.Scope_modeContext ctx) {
-        model.scopeModeExpr = ExprNorm.normalize(ctx.getText());
+        String sm = antlrUtilities.getText(ctx);
+        if (sm != null && !sm.isEmpty()) {
+            String smt = sm.trim();
+            String smlc = smt.toLowerCase();
+            String m;
+            if (smlc.startsWith("mode ")) {
+                m = smt.substring(5).trim();
+            } else if (smlc.endsWith(" mode")) {
+                m = smt.substring(0, smt.length() - 5).trim();
+            } else {
+                m = smt;
+            }
+            model.scopeModeExpr = m;
+            if (!model.variables.contains(m)) {
+                model.variables.add(m);
+            }
+        }
     }
 
     @Override
     public void enterScope_condition(RequirementParser.Scope_conditionContext ctx) {
-        model.scopeModeExpr = ExprNorm.normalize(ctx.getText());
+        model.scopeModeExpr = "(" + antlrUtilities.getText(ctx).trim() + ")";
     }
 
     @Override
     public void enterQualifier_word(RequirementParser.Qualifier_wordContext ctx) {
-        String q = ctx.getText().trim().toLowerCase();
+        String q = antlrUtilities.getText(ctx).toLowerCase().trim();
         if (q.equals("whenever")) model.conditionType = ReqModel.ConditionType.HOLDING;
         else model.conditionType = ReqModel.ConditionType.REGULAR;
     }
@@ -94,12 +129,10 @@ public final class FretishListenerToModel extends RequirementBaseListener {
                     case "always" -> model.timingType = ReqModel.TimingType.ALWAYS;
                     case "within" -> model.timingType = ReqModel.TimingType.WITHIN;
                     case "never" -> model.timingType = ReqModel.TimingType.NEVER;
+                    case "after" -> model.timingType = ReqModel.TimingType.AFTER;
                 }
-                System.out.println(text);
             }
         }
-
-        System.out.println(model.timingType);
     }
 
     /*

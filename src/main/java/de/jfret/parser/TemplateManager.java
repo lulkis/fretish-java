@@ -22,7 +22,6 @@ public class TemplateManager {
             }
 
             this.templates = mapper.readValue(is, new TypeReference<Map<String, Map<String, Object>>>() {});
-            System.out.println("Erfolgreich " + templates.size() + " Templates geladen.");
         } catch (Exception e) {
             e.printStackTrace();
         }

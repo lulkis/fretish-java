@@ -9,6 +9,8 @@ public class TypeConverter {
             case IN -> { return "in"; }
             case NOT_IN -> { return "notin"; }
             case AFTER -> { return "after"; }
+            case BEFORE -> { return "before"; }
+            case ONLY_IN ->  { return "onlyIn"; }
             //NONE, GLOBALLY, IN, IN_MODE, AFTER, BEFORE, ONLY_AFTER, ONLY_BEFORE, ONLY_IN, NOT_IN, UNHANDLED
         }
 

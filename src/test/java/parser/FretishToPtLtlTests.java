@@ -78,4 +78,30 @@ public class FretishToPtLtlTests {
 
         assertEquals(processedExpected, processedActual);
     }
+
+    @Test
+    @DisplayName("Ex")
+    public void testReal5_1(){
+        String in = "BEFORE cruise_mode, target_altitude SHALL SATISFY reached";
+        String expected = "((H ((((cruise_mode & (Z (! cruise_mode))) & (Z (H (! cruise_mode)))) & (Y TRUE)) -> (Y (O reached)))) & ((H (! ((cruise_mode & (Z (! cruise_mode))) & (Z (H (! cruise_mode)))))) -> (O reached)))";
+        Fret2ptLTL parser = new Fret2ptLTL();
+
+        String processedExpected = norm(expected);
+        String processedActual = norm(parser.compileToPtLtl(in));
+
+        assertEquals(processedExpected, processedActual);
+    }
+
+    @Test
+    @DisplayName("Ex")
+    public void testReal5_2(){
+        String in = "the System shall satisfy (x + y) * 2 >= threshold";
+        String expected = "(O (((x + y) * 2) >= threshold))";
+        Fret2ptLTL parser = new Fret2ptLTL();
+
+        String processedExpected = norm(expected);
+        String processedActual = norm(parser.compileToPtLtl(in));
+
+        assertEquals(processedExpected, processedActual);
+    }
 }

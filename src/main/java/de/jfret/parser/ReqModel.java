@@ -1,5 +1,8 @@
 package de.jfret.parser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public final class ReqModel {
 
     public enum ScopeType { NONE, GLOBALLY, IN, IN_MODE, AFTER, BEFORE, ONLY_AFTER, ONLY_BEFORE, ONLY_IN, NOT_IN, UNHANDLED }
@@ -27,4 +30,6 @@ public final class ReqModel {
     public ResponseType responseType;
 
     public TimingTextRange timingTextRange;
+
+    public List<String> variables = new ArrayList<>();
 }

@@ -26,15 +26,13 @@ public class Fret2ptLTL {
                 type.getTimingStringFromType(model.timingType) + "," +
                 type.getResponseStringFromType(model.responseType);
 
-        System.out.println(tableLookUp);
+        //System.out.println(tableLookUp);
 
         TemplateManager manager = new TemplateManager();
         String ptTemplate = manager.getPastTimeTemplate(tableLookUp);
-        System.out.println(ptTemplate);
+        //System.out.println(ptTemplate);
 
-        System.out.println(model.postConditionExpr);
-        //ptTemplate = ptTemplate.replace("$regular_condition$", wrapComplexExpression(model.preConditionExpr));
-        //ptTemplate = ptTemplate.replace("$post_condition$", wrapComplexExpression(model.postConditionExpr));
+        //System.out.println(model.postConditionExpr);
 
         LTLparser ltLparser = new LTLparser();
 
@@ -53,9 +51,12 @@ public class Fret2ptLTL {
         if(model.duration != null) {
             int duration = Integer.parseInt(model.duration);
 
-            ptTemplate = ptTemplate.replace("=$duration$", duration + ", " + duration);
-            ptTemplate = ptTemplate.replace("<$duration$", 0 + ", " + (duration - 1));
+            ptTemplate = ptTemplate.replace("<=$duration$+1", 0 + ", " + (duration+1));
             ptTemplate = ptTemplate.replace("<=$duration$", 0 + ", " + duration);
+            ptTemplate = ptTemplate.replace("=$duration$+1", duration + ", " + (duration+1));
+            ptTemplate = ptTemplate.replace("=$duration$", duration + ", " + duration);
+            ptTemplate = ptTemplate.replace("<$duration$+1", 0 + ", " + (duration));
+            ptTemplate = ptTemplate.replace("<$duration$", 0 + ", " + (duration - 1));
         }
 
         return ptTemplate;
