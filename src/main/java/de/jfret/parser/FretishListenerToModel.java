@@ -61,7 +61,16 @@ public final class FretishListenerToModel extends RequirementBaseListener {
 
     @Override
     public void enterDuration(RequirementParser.DurationContext ctx) {
-        model.duration = ctx.NUMBER().getText();
+        String text = antlrUtilities.getText(ctx).trim();
+
+        java.util.regex.Matcher matcher =
+                java.util.regex.Pattern
+                        .compile("\\d+(?:\\.\\d+)?")
+                        .matcher(text);
+
+        if (matcher.find()) {
+            model.duration = matcher.group();
+        }
     }
 
     @Override

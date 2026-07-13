@@ -46,6 +46,18 @@ public class Fret2ptLTL {
             ptTemplate = ptTemplate.replace("$post_condition$", ltLparser.rewriteLTL(model.postConditionExpr));
         }
 
+        if(model.scopeModeExpr != null) {
+            ptTemplate = ptTemplate.replace("$scope_mode$", ltLparser.rewriteLTL(model.scopeModeExpr));
+        }
+
+        if(model.duration != null) {
+            int duration = Integer.parseInt(model.duration);
+
+            ptTemplate = ptTemplate.replace("=$duration$", duration + ", " + duration);
+            ptTemplate = ptTemplate.replace("<$duration$", 0 + ", " + (duration - 1));
+            ptTemplate = ptTemplate.replace("<=$duration$", 0 + ", " + duration);
+        }
+
         return ptTemplate;
     }
 }
