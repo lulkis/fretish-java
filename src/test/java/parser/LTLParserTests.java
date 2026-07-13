@@ -1,8 +1,5 @@
 package parser;
 
-import de.jfret.parser.Fret2ptLTL;
-import de.jfret.parser.LTLASTAnalyzer;
-import de.jfret.parser.LTLParser;
 import de.jfret.parser.LTLparser;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,10 +13,21 @@ public class LTLParserTests {
     public void testReal1(){
         String s = "counter=counter+1";
         LTLparser parser = new LTLparser();
+
         Object o = parser.LTL2AST(s);
 
-        System.out.println(o);
+        assertEquals("[Equal, counter, [Plus, counter, 1]]", o.toString());
+    }
 
-        assertEquals(true, false);
+    @Test
+    @DisplayName("ltl test")
+    public void testReal2(){
+        String s = "counter=counter+1";
+        LTLparser parser = new LTLparser();
+
+        Object o = parser.LTL2AST(s);
+        String result = parser.ASTtoLTL(o);
+
+        assertEquals("(counter = (counter + 1))", result);
     }
 }

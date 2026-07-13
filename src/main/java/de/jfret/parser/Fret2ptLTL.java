@@ -36,8 +36,10 @@ public class Fret2ptLTL {
         //ptTemplate = ptTemplate.replace("$regular_condition$", wrapComplexExpression(model.preConditionExpr));
         //ptTemplate = ptTemplate.replace("$post_condition$", wrapComplexExpression(model.postConditionExpr));
 
-        ptTemplate = ptTemplate.replace("$regular_condition$", model.preConditionExpr);
-        ptTemplate = ptTemplate.replace("$post_condition$", model.postConditionExpr);
+        LTLparser ltLparser = new LTLparser();
+
+        ptTemplate = ptTemplate.replace("$regular_condition$", ltLparser.rewriteLTL(model.preConditionExpr));
+        ptTemplate = ptTemplate.replace("$post_condition$", ltLparser.rewriteLTL(model.postConditionExpr));
 
         return ptTemplate;
     }

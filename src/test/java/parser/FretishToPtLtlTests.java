@@ -69,7 +69,7 @@ public class FretishToPtLtlTests {
     @Test
     @DisplayName("Example for fret 1")
     public void testReal4(){
-        String in = "IN landing_mode WHEN altitude < 50 gear SHALL WITHIN 2 SECONDS SATISFY deployed.";
+        String in = "IN landing_mode WHEN altitude < 50 gear SHALL WITHIN 2 SECONDS SATISFY deployed";
         String expected = "((H (((! landing_mode) & (Y landing_mode)) -> (Y (((O[2,2] (((altitude < 50) & ((Y (! (altitude < 50))) | (landing_mode & (Z (! landing_mode))))) & (! deployed))) -> (O[0,1] ((landing_mode & (Z (! landing_mode))) | deployed))) S (((O[2,2] (((altitude < 50) & ((Y (! (altitude < 50))) | (landing_mode & (Z (! landing_mode))))) & (! deployed))) -> (O[0,1] ((landing_mode & (Z (! landing_mode))) | deployed))) & (landing_mode & (Z (! landing_mode)))))))) & (((! ((! landing_mode) & (Y landing_mode))) S ((! ((! landing_mode) & (Y landing_mode))) & (landing_mode & (Z (! landing_mode))))) -> (((O[2,2] (((altitude < 50) & ((Y (! (altitude < 50))) | (landing_mode & (Z (! landing_mode))))) & (! deployed))) -> (O[0,1] ((landing_mode & (Z (! landing_mode))) | deployed))) S (((O[2,2] (((altitude < 50) & ((Y (! (altitude < 50))) | (landing_mode & (Z (! landing_mode))))) & (! deployed))) -> (O[0,1] ((landing_mode & (Z (! landing_mode))) | deployed))) & (landing_mode & (Z (! landing_mode)))))))";
         Fret2ptLTL parser = new Fret2ptLTL();
 
