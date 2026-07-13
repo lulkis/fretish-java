@@ -1,5 +1,11 @@
-package de.jfret.parser;
+package de.jfret;
 
+import de.jfret.fretparser.FretishListenerToModel;
+import de.jfret.fretparser.ReqModel;
+import de.jfret.fretparser.TemplateManager;
+import de.jfret.fretparser.TypeConverter;
+import de.jfret.ltlparser.LTLparser;
+import de.jfret.parser.*;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;

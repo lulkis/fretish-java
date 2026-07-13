@@ -1,9 +1,7 @@
-package de.jfret.parser;
+package de.jfret.fretparser;
 
-import com.ibm.icu.impl.units.UnitsData;
-
-import java.util.Arrays;
-import java.util.HashMap;
+import de.jfret.parser.RequirementBaseListener;
+import de.jfret.parser.RequirementParser;
 
 public final class FretishListenerToModel extends RequirementBaseListener {
 

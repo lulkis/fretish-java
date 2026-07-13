@@ -1,4 +1,4 @@
-package de.jfret.parser;
+package de.jfret.fretparser;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

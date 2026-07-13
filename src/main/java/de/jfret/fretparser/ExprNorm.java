@@ -1,4 +1,4 @@
-package de.jfret.parser;
+package de.jfret.fretparser;
 
 public final class ExprNorm {
     private ExprNorm() {}

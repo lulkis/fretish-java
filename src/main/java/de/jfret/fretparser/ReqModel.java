@@ -1,4 +1,4 @@
-package de.jfret.parser;
+package de.jfret.fretparser;
 
 import java.util.ArrayList;
 import java.util.List;

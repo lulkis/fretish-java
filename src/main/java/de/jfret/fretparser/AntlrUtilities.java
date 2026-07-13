@@ -1,4 +1,4 @@
-package de.jfret.parser;
+package de.jfret.fretparser;
 
 import org.antlr.v4.runtime.tree.ParseTree;
 

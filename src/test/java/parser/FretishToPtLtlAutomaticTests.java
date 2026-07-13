@@ -1,13 +1,11 @@
 package parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import de.jfret.parser.Fret2LtlCLI;
-import de.jfret.parser.Fret2ptLTL;
-import org.junit.jupiter.api.Test;
+import de.jfret.fretparser.Fret2LtlCLI;
+import de.jfret.Fret2ptLTL;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 

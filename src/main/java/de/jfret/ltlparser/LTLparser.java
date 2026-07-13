@@ -1,5 +1,7 @@
-package de.jfret.parser;
+package de.jfret.ltlparser;
 
+import de.jfret.parser.LTLLexer;
+import de.jfret.parser.LTLParser;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;

@@ -2,9 +2,7 @@ package parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import de.jfret.parser.*;
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.*;
+import de.jfret.Fret2ptLTL;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

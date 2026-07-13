@@ -1,6 +1,6 @@
 package parser;
 
-import de.jfret.parser.LTLparser;
+import de.jfret.ltlparser.LTLparser;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

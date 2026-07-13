@@ -1,12 +1,13 @@
-package de.jfret.parser;
+package de.jfret.ltlparser;
+
+import de.jfret.fretparser.AntlrUtilities;
+import de.jfret.parser.LTLBaseVisitor;
+import de.jfret.parser.LTLParser;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
-import java.util.Objects;
 
-public class LTLASTAnalyzer extends LTLBaseVisitor<Object>{
+public class LTLASTAnalyzer extends LTLBaseVisitor<Object> {
 
     AntlrUtilities utils =  new AntlrUtilities();
 
