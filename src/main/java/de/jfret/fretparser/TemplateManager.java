@@ -16,9 +16,9 @@ public class TemplateManager {
     private void loadTemplates() {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            InputStream is = getClass().getClassLoader().getResourceAsStream("semantics.json");
+            InputStream is = getClass().getClassLoader().getResourceAsStream("semantics_min.json");
             if (is == null) {
-                throw new RuntimeException("templates.json nicht im Resources-Ordner gefunden!");
+                throw new RuntimeException("templates_min.json nicht im Resources-Ordner gefunden!");
             }
 
             this.templates = mapper.readValue(is, new TypeReference<Map<String, Map<String, Object>>>() {});
