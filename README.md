@@ -11,5 +11,5 @@ This project just supports FRETish translation into ptLTL.
 #### Usage
 Just give the FRETish Formula as an argument to the programm.
 ```
-./gradlew run --args="FROMULA"
+./gradlew run --args="FORMULA"
 ```
