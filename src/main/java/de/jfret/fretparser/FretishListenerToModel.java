@@ -113,6 +113,7 @@ public final class FretishListenerToModel extends RequirementBaseListener {
 
         if (text.equals("at")) {
             String mid = words[2];
+            System.out.println(mid);
             switch (mid) {
                 case "first", "same" -> model.timingType = ReqModel.TimingType.IMMEDIATELY;
                 case "next" -> model.timingType = ReqModel.TimingType.NEXT;
@@ -127,6 +128,7 @@ public final class FretishListenerToModel extends RequirementBaseListener {
                     case "always" -> model.timingType = ReqModel.TimingType.ALWAYS;
                     case "within" -> model.timingType = ReqModel.TimingType.WITHIN;
                     case "never" -> model.timingType = ReqModel.TimingType.NEVER;
+                    case "immediately"  -> model.timingType = ReqModel.TimingType.IMMEDIATELY;
                     case "after" -> model.timingType = ReqModel.TimingType.AFTER;
                 }
             }

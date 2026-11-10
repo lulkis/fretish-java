@@ -29,7 +29,9 @@ public class FretishToPtLtlAutomaticTests {
                 "the System shall, with probability = 0.5, within 10 seconds satisfy output1",
                 "the System shall satisfy (a => b) & (c <=> d)",
                 "the System shall satisfy x mod 4 = 0",
-                "unless in cruise mode, upon altitude_drop, the System shall, with probability >= 0.9, satisfy alert_triggered"
+                "unless in cruise mode, upon altitude_drop, the System shall, with probability >= 0.9, satisfy alert_triggered",
+                "when inc & counter < 100 Lift shall immediately satisfy (counter = counter_prev + 1)",
+                "Lift shall always satisfy (counter = 100 -> !inc)"
         );
     }
 
